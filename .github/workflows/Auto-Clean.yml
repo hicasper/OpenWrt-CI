@@ -1,9 +1,6 @@
 name: Auto-Clean
 
 on:
-  #自动清理：每天早上6点
-  schedule:
-    - cron: 0 22 * * *
   #手动清理
   workflow_dispatch:
 
@@ -22,3 +19,5 @@ jobs:
           delete_tags: true
           delete_workflows: true
           workflows_keep_day: 0
+  cache_clean:
+    uses: ./.github/workflows/Cache-Clean.yml
