@@ -25,6 +25,11 @@ on:
         type: boolean
         required: false
         default: 'false'
+      FIXNSS:
+        description: 'Fix NSS Package Hash'
+        type: boolean
+        required: false
+        default: 'false'
 
 #CI权限
 permissions: write-all
@@ -71,3 +76,5 @@ jobs:
       WRT_TEST: ${{inputs.TEST}}
       #Debug Shell
       DBGSHELL: ${{inputs.DBGSHELL}}
+      #Fix NSS Package Hash
+      WRT_FIXNSS: ${{inputs.FIXNSS}}
