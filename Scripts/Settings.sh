@@ -48,6 +48,11 @@ if [ -n "$WRT_PACKAGE" ]; then
 	echo -e "$WRT_PACKAGE" >> ./.config
 fi
 
+#使用Opkg
+if [[ $WRT_USEOPKG = 'true' ]]; then
+	echo "CONFIG_USE_APK=n" >>.config
+fi
+
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/dts/"
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
