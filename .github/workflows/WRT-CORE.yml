@@ -43,7 +43,7 @@ on:
       DBGSHELL:
         required: false
         type: boolean
-      WRT_FIXNSS:
+      WRT_OAF:
         required: false
         type: boolean
 
@@ -204,6 +204,21 @@ jobs:
           cd ./wrt/
 
           make -j$(nproc) || make -j1 V=s
+
+      - name: Compile OpenAppFilter
+        if: ${{ inputs.WRT_OAF }}
+        run: |
+          cd ./wrt/
+          echo "CONFIG_PACKAGE_luci-app-oaf=y" >>.config
+          make defconfig
+          make package/luci-app-oaf/compile -j$(nproc) || make package/luci-app-oaf/compile -j1 V=s
+          mkdir -p ./upload
+          find ./bin -type f \
+            \( -name 'kmod-ipt-conntrack-*.apk' -o -name 'kmod-ipt-conntrack-*.ipk' \
+               -o -name '*-oaf-*.apk' -o -name '*-oaf-*.ipk' \
+               -o -name 'libpthread-*.apk' -o -name 'libpthread-*.ipk' \
+               -o -name 'appfilter-*.apk' -o -name 'appfilter-*.ipk' \) \
+            -exec cp {} ./upload/ \;
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
