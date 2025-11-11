@@ -25,6 +25,11 @@ on:
         type: boolean
         required: false
         default: 'false'
+      USEOPKG:
+        description: 'Using Opkg instead of Apk'
+        type: boolean
+        required: false
+        default: 'false'
       OAF:
         description: 'Compile OpenAppFilter'
         type: boolean
@@ -76,5 +81,7 @@ jobs:
       WRT_TEST: ${{inputs.TEST}}
       #Debug Shell
       DBGSHELL: ${{inputs.DBGSHELL}}
-      #Fix NSS Package Hash
+      # Use Opkg
+      WRT_USEOPKG: ${{inputs.USEOPKG}}
+      #Compile OpenAppFilter
       WRT_OAF: ${{inputs.OAF}}

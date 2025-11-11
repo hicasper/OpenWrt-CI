@@ -43,6 +43,9 @@ on:
       DBGSHELL:
         required: false
         type: boolean
+      WRT_USEOPKG:
+        required: false
+        type: boolean
       WRT_OAF:
         required: false
         type: boolean
@@ -61,6 +64,7 @@ env:
   WRT_SOURCE: ${{inputs.WRT_SOURCE}}
   WRT_PACKAGE: ${{inputs.WRT_PACKAGE}}
   WRT_TEST: ${{inputs.WRT_TEST}}
+  WRT_USEOPKG: ${{inputs.WRT_USEOPKG}}
 
 
 jobs:
