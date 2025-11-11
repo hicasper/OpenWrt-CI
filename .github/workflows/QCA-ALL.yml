@@ -25,8 +25,8 @@ on:
         type: boolean
         required: false
         default: 'false'
-      FIXNSS:
-        description: 'Fix NSS Package Hash'
+      OAF:
+        description: 'Compile OpenAppFilter'
         type: boolean
         required: false
         default: 'false'
@@ -77,4 +77,4 @@ jobs:
       #Debug Shell
       DBGSHELL: ${{inputs.DBGSHELL}}
       #Fix NSS Package Hash
-      WRT_FIXNSS: ${{inputs.FIXNSS}}
+      WRT_OAF: ${{inputs.OAF}}
