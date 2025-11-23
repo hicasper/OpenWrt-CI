@@ -76,3 +76,6 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	sed -i 's/ECM://g' target/linux/qualcommax/base-files/sbin/cpuusage
 	sed -i 's/HWE/NPU/g' target/linux/qualcommax/base-files/sbin/cpuusage
 fi
+
+# Disable Audio Support
+sed -i 's|CONFIG_AUDIO_SUPPORT=y|CONFIG_AUDIO_SUPPORT=n|g' ./.config
