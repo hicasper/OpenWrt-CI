@@ -48,7 +48,7 @@ fi
 
 #使用Opkg
 if [[ $WRT_USEOPKG = 'true' ]]; then
-	echo "CONFIG_USE_APK=n" >>.config
+	echo "CONFIG_USE_APK=n" >> ./.config
 fi
 
 #高通平台调整
